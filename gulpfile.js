@@ -3,7 +3,7 @@ const del = require('del');
 const minifyCSS = require('gulp-csso');
 const minifyJS = require('gulp-minify');
 
-const DEST = '../yuvoronin.github.io/my-radio';
+const DEST = '../yurivoronin.github.io/my-radio';
 
 const clean = () => del(`${DEST}/**/*.*`);
 
