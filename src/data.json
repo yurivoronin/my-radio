@@ -1,0 +1,20 @@
+{
+    "stations": [
+        {
+            "name": "Radio ULTRA",
+            "link": "https://nashe1.hostingradio.ru:18000/ultra-128.mp3"
+        },
+        {
+            "name": "Rock FM",
+            "link": "http://nashe1.hostingradio.ru/rock-128.mp3"
+        },
+        {
+            "name": "NASHE Radio",
+            "link": "https://nashe1.hostingradio.ru:80/nashe-128.mp3"
+        },
+        {
+            "name": "NASHE 2.0",
+            "link": "https://nashe1.hostingradio.ru:18000/nashe20-128.mp3"
+        }
+    ]
+}
