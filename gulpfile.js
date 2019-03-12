@@ -5,22 +5,22 @@ const minifyJS = require('gulp-minify');
 
 const DEST = '../yurivoronin.github.io/my-radio';
 
-const clean = () => del(`${DEST}/**/*.*`);
+const clean = () => del(`${DEST}/**/*.*`, { force: true });
 
-const html = () => src(['src/index.html'])
+const html = () => src(['src/my-radio/index.html'])
   .pipe(dest(`${DEST}`));
 
-const icons = () => src(['src/icons/*.png'])
+const icons = () => src(['src/my-radio/icons/*.png'])
   .pipe(dest(`${DEST}/icons`));
 
-const json = () => src(['src/*.json',])
+const json = () => src(['src/my-radio/*.json',])
   .pipe(dest(`${DEST}`));
 
-const css = () => src('src/styles.css')
+const css = () => src('src/my-radio/styles.css')
   .pipe(minifyCSS())
   .pipe(dest(`${DEST}`));
 
-const js = () => src('src/script.js')
+const js = () => src('src/my-radio/*.js')
   .pipe(minifyJS({ noSource: true, ext: { min: '.js' } }))
   .pipe(dest(`${DEST}`));
 

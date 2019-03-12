@@ -5,39 +5,39 @@
   "short_name": "My radio",
   "icons": [
     {
-      "src": "/icons/512.png",
+      "src": "/my-radio/icons/512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/icons/256.png",
+      "src": "/my-radio/icons/256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "/icons/192.png",
+      "src": "/my-radio/icons/192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icons/96.png",
+      "src": "/my-radio/icons/96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "/icons/64.png",
+      "src": "/my-radio/icons/64.png",
       "sizes": "64x64",
       "type": "image/png"
     },
     {
-      "src": "/icons/32.png",
+      "src": "/my-radio/icons/32.png",
       "sizes": "32x32",
       "type": "image/png"
     }
   ],
   "theme_color": "#1e1e1e",
   "background_color": "#1e1e1e",
-  "start_url": "/",
+  "start_url": "/my-radio/",
   "display": "standalone",
   "orientation": "natural"
 }
