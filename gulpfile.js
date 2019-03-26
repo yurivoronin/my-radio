@@ -23,6 +23,10 @@ const css = () => src('src/my-radio/styles.css')
   .pipe(minifyCSS())
   .pipe(dest(DEST));
 
+const sw = () => src('src/my-radio/sw.js')
+  .pipe(minifyJS({ noSource: true, ext: { min: '.js' } }))
+  .pipe(dest(`${DEST}`));
+
 const ts = () => src('src/my-radio/**/*.ts')
   .pipe(typescript({
     target: 'es2018',
@@ -47,4 +51,4 @@ exports.default = series(ts, bundleTo('./src/my-radio'), cleanTs);
 
 watch('src/my-radio/**/*.ts', exports.default);
 
-exports.build = series(clean, parallel(html, icons, json, css, series(ts, bundleTo(DEST), cleanTs)));
+exports.build = series(clean, parallel(html, icons, json, css, sw, series(ts, bundleTo(DEST), cleanTs)));
