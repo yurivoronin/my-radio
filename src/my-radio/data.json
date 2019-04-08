@@ -22,63 +22,27 @@
         },
         {
             "name": "Rock Prog",
-            "url": "http://jfm1.hostingradio.ru:14536/prog.mp3",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://jfm1.hostingradio.ru:14536/prog.mp3"
         },
         {
             "name": "Rock Heavy",
-            "url": "http://jfm1.hostingradio.ru:14536/metal.mp3",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://jfm1.hostingradio.ru:14536/metal.mp3"
         },
         {
             "name": "Rock 00s",
-            "url": "http://rock00128.streamr.ru/",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://rock00128.streamr.ru/"
         },
         {
             "name": "Rock 90s",
-            "url": "http://rock90128.streamr.ru/",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://rock90128.streamr.ru/"
         },
         {
             "name": "Rock 80s",
-            "url": "http://rock80128.streamr.ru/",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://rock80128.streamr.ru/"
         },
         {
             "name": "Rock 70s",
-            "url": "http://rock70128.streamr.ru/",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://rock70128.streamr.ru/"
         },
         {
             "name": "Monte Carlo",
@@ -94,7 +58,7 @@
             "name": "NRJ",
             "url": "http://ic3.101.ru:8000/a99?userid=0&setst=mgod91tfepi53nc6gmcj161ci9",
             "title": {
-                "url": "http://www.energyfm.ru/api/radiostation/getTitleBroadcast/?dataFormat=json",
+                "url": "https://www.energyfm.ru/api/radiostation/getTitleBroadcast/?dataFormat=json",
                 "artist": "result.short.titleExecutorFull",
                 "song": "result.short.titleTrack",
                 "alt": "result.short.title"
@@ -122,23 +86,11 @@
         },
         {
             "name": "NASHE Classic Rock",
-            "url": "http://nashe1.hostingradio.ru/nasheclassic.mp3",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://nashe1.hostingradio.ru/nasheclassic.mp3"
         },
         {
             "name": "NASHE Punks",
-            "url": "http://nashe1.hostingradio.ru/nashepunks.mp3",
-            "title": {
-                "url": "",
-                "artist": "",
-                "song": "",
-                "alt": ""
-            }
+            "url": "http://nashe1.hostingradio.ru/nashepunks.mp3"
         }
     ]
 }
