@@ -9,14 +9,14 @@
   "author": "Yuri Voronin",
   "license": "MIT",
   "devDependencies": {
-    "del": "^4.0.0",
+    "del": "^4.1.0",
     "gulp": "^4.0.0",
     "gulp-csso": "^3.0.1",
     "gulp-minify": "^3.1.0",
     "gulp-rollup": "^2.16.2",
     "gulp-typescript": "^5.0.1",
     "lite-dev-server": "^3.2.6",
-    "tslint": "^5.14.0",
-    "typescript": "^3.3.4000"
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.2"
   }
 }
