@@ -2,59 +2,143 @@
     "stations": [
         {
             "name": "Radio ULTRA",
-            "url": "https://nashe1.hostingradio.ru:18000/ultra-128.mp3"
+            "url": "https://nashe1.hostingradio.ru:18000/ultra-128.mp3",
+            "title": {
+                "url": "https://fmgid.com/stations/ultra/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock FM",
-            "url": "http://nashe1.hostingradio.ru/rock-128.mp3"
+            "url": "http://nashe1.hostingradio.ru/rock-128.mp3",
+            "title": {
+                "url": "https://fmgid.com/stations/rock/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock Prog",
-            "url": "http://jfm1.hostingradio.ru:14536/prog.mp3"
+            "url": "http://jfm1.hostingradio.ru:14536/prog.mp3",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "Rock Heavy",
-            "url": "http://jfm1.hostingradio.ru:14536/metal.mp3"
+            "url": "http://jfm1.hostingradio.ru:14536/metal.mp3",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "Rock 00s",
-            "url": "http://rock00128.streamr.ru/"
+            "url": "http://rock00128.streamr.ru/",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "Rock 90s",
-            "url": "http://rock90128.streamr.ru/"
+            "url": "http://rock90128.streamr.ru/",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "Rock 80s",
-            "url": "http://rock80128.streamr.ru/"
+            "url": "http://rock80128.streamr.ru/",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "Rock 70s",
-            "url": "http://rock70128.streamr.ru/"
+            "url": "http://rock70128.streamr.ru/",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "Monte Carlo",
-            "url": "https://montecarlo.hostingradio.ru/montecarlo96.aacp"
+            "url": "https://montecarlo.hostingradio.ru/montecarlo96.aacp",
+            "title": {
+                "url": "https://montecarlo.ru/api/current_playing/93a858ce-4a04-4997-9d15-ed89a6d9544c",
+                "artist": "",
+                "song": "",
+                "alt": "name"
+            }
         },
         {
             "name": "NRJ",
-            "url": "http://ic3.101.ru:8000/a99?userid=0&setst=mgod91tfepi53nc6gmcj161ci9"
+            "url": "http://ic3.101.ru:8000/a99?userid=0&setst=mgod91tfepi53nc6gmcj161ci9",
+            "title": {
+                "url": "http://www.energyfm.ru/api/radiostation/getTitleBroadcast/?dataFormat=json",
+                "artist": "result.short.titleExecutorFull",
+                "song": "result.short.titleTrack",
+                "alt": "result.short.title"
+            }
         },
         {
             "name": "NASHE Radio",
-            "url": "https://nashe1.hostingradio.ru:80/nashe-128.mp3"
+            "url": "https://nashe1.hostingradio.ru:80/nashe-128.mp3",
+            "title": {
+                "url": "https://metanashe.hostingradio.ru/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "NASHE 2.0",
-            "url": "https://nashe1.hostingradio.ru:18000/nashe20-128.mp3"
+            "url": "https://nashe1.hostingradio.ru:18000/nashe20-128.mp3",
+            "title": {
+                "url": "https://metanashe20.hostingradio.ru/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "NASHE Classic Rock",
-            "url": "http://nashe1.hostingradio.ru/nasheclassic.mp3"
+            "url": "http://nashe1.hostingradio.ru/nasheclassic.mp3",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         },
         {
             "name": "NASHE Punks",
-            "url": "http://nashe1.hostingradio.ru/nashepunks.mp3"
+            "url": "http://nashe1.hostingradio.ru/nashepunks.mp3",
+            "title": {
+                "url": "",
+                "artist": "",
+                "song": "",
+                "alt": ""
+            }
         }
     ]
 }

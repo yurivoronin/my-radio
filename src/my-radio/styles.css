@@ -6,6 +6,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 300;
+    line-height: 1.4;
 }
 
 .list {
@@ -19,25 +20,67 @@ body {
 }
 
 .list li {
-    padding: 1rem 2rem;
     position: relative;
-    
+
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+    text-align: center;
+
+    transition: background-color 0.2s ease-out;
 }
 
 .list li:last-child {
     border-bottom: 0 none;
 }
 
-.list .active::before {
-    content: '▶';
+.list .active {
+    background-color: #161616;
+}
+
+.list a {
     display: block;
+    padding: 1rem 2rem;
+    position: relative;
 
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    cursor: pointer;
+}
 
-    color: #244fa6;
-    font-size: 1rem;
+.list .titles {
+    display: flex;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+
+    font-size: 75%;
+    opacity: 0;
+
+    transition: opacity .2s ease-out, transform .2s ease-out;
+    transform: rotateX(.25turn);
+    transform-origin: top;
+}
+
+.list .title,
+.list .subtitle {
+    display: block;
+    height: 0;
+    transition: height .2s ease-in-out, padding .2s ease-in-out;
+}
+
+.list .active .titles {
+    opacity: 1;
+
+    transform: none;
+}
+
+.list .active .title:not(:empty) {
+    height: 1rem;
+    padding-top: .25rem;
+
+    font-weight: 500;
+}
+
+.list .active .subtitle:not(:empty) {
+    height: 1rem;
+    padding-top: .25rem;
 }
