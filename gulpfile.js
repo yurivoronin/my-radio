@@ -47,8 +47,12 @@ const bundleTo = (folder) =>
 
 const cleanTs = () => del(TS_DEST);
 
+const watchTs = () => {
+  watch('src/my-radio/**/*.ts', { ignoreInitial: false }, exports.default);
+};
+
 exports.default = series(ts, bundleTo('./src/my-radio'), cleanTs);
 
-watch('src/my-radio/**/*.ts', exports.default);
+exports.watch = parallel(watchTs)
 
 exports.build = series(clean, parallel(html, icons, json, css, sw, series(ts, bundleTo(DEST), cleanTs)));
