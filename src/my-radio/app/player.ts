@@ -32,7 +32,7 @@ export class Player {
   private visualizer: Visualizer;
 
   constructor($container: HTMLElement, stations: IStation[]) {
-    this.$audio = createHTMLElement<HTMLAudioElement>(AUDIO_TAG, $container);
+    this.$audio = createHTMLElement<HTMLAudioElement>(AUDIO_TAG, $container, { crossorigin: 'anonymous' });
     const $list = createHTMLElement<HTMLUListElement>(UL_TAG, $container, { class: LIST_CLASS });
 
     stations.forEach(station => $list.appendChild(this.createItem(station)));
