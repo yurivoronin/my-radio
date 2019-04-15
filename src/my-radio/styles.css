@@ -34,6 +34,7 @@ body {
 
 .list .active {
     background-color: #161616;
+    text-shadow: 1px 1px 0 #161616, -1px 1px 0 #161616, -1px -1px 0 #161616, 1px -1px 0 #161616;
 }
 
 .list a {
@@ -83,4 +84,34 @@ body {
 .list .active .subtitle:not(:empty) {
     height: 1rem;
     padding-top: .25rem;
+}
+
+.list .active .station {
+    background-color: rgba(22, 22, 22, 0.4);
+    box-shadow: 0 0 .25rem .25rem rgba(22, 22, 22, 0.4);
+}
+
+.visualization {
+    width: 100%;
+    height: 3.75rem;
+    
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.list .visualization {
+    opacity: 0;
+
+    transition: opacity .2s ease-out;
+}
+
+.list .active .visualization {
+    opacity: 1;
+}
+
+.visualization .path,
+.visualization .path-glow {
+    stroke: #487df5;
 }

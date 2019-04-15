@@ -1,19 +1,26 @@
 import { IStation } from './station';
 
-import { createElement } from './utils';
+import { createHTMLElement } from './utils';
 import { ITitleData } from './title-data';
 import { TitleLoader } from './title-loader';
+import { Visualizer } from './visualizer';
 
+const LIST_CLASS = 'list';
 const ACTIVE_CLASS = 'active';
+const STATION_NAME_CLASS = 'station';
 const TITLES_CLASS = 'titles';
 const TITLE_CLASS = 'title';
 const SUBTITLE_CLASS = 'subtitle';
+
+const AUDIO_TAG = 'audio';
+const UL_TAG = 'ul';
 const LI_TAG = 'li';
 const A_TAG = 'a';
 const SPAN_TAG = 'span';
 
 export class Player {
 
+  private $audio: HTMLAudioElement;
   private $current = null;
   private url = null;
 
@@ -21,28 +28,28 @@ export class Player {
   private titleTimer;
   private titles = new Map<string, { $title, $subtitle }>();
 
-  constructor(private $audio: HTMLAudioElement, $list: HTMLUListElement, stations: IStation[]) {
+  private $background;
+  private visualizer: Visualizer;
+
+  constructor($container: HTMLElement, stations: IStation[]) {
+    this.$audio = createHTMLElement<HTMLAudioElement>(AUDIO_TAG, $container);
+    const $list = createHTMLElement<HTMLUListElement>(UL_TAG, $container, { class: LIST_CLASS });
+
     stations.forEach(station => $list.appendChild(this.createItem(station)));
+
+    this.visualizer = new Visualizer(this.$audio);
+    this.$background = this.visualizer.container;
   }
 
   private createItem(station: IStation): HTMLLIElement {
-    const $item = createElement(LI_TAG) as HTMLLIElement;
-    const $link = createElement(A_TAG) as HTMLAnchorElement;
-    const $name = createElement(SPAN_TAG) as HTMLSpanElement;
-    const $titles = createElement(SPAN_TAG) as HTMLSpanElement;
-    const $title = createElement(SPAN_TAG) as HTMLSpanElement;
-    const $subtitle = createElement(SPAN_TAG) as HTMLSpanElement;
+    const $item = createHTMLElement<HTMLLIElement>(LI_TAG);
+    const $link = createHTMLElement<HTMLAnchorElement>(A_TAG, $item);
+    const $name = createHTMLElement<HTMLSpanElement>(SPAN_TAG, $link, { class: STATION_NAME_CLASS });
+    const $titles = createHTMLElement<HTMLSpanElement>(SPAN_TAG, $link, { class: TITLES_CLASS });
+    const $title = createHTMLElement<HTMLSpanElement>(SPAN_TAG, $titles, { class: TITLE_CLASS });
+    const $subtitle = createHTMLElement<HTMLSpanElement>(SPAN_TAG, $titles, { class: SUBTITLE_CLASS });
 
     $name.textContent = station.name;
-    $titles.className = TITLES_CLASS;
-    $title.className = TITLE_CLASS;
-    $subtitle.className = SUBTITLE_CLASS;
-
-    $item.appendChild($link);
-    $link.appendChild($name);
-    $link.appendChild($titles);
-    $titles.appendChild($title);
-    $titles.appendChild($subtitle);
 
     this.titles.set(station.url, { $title, $subtitle });
 
@@ -65,6 +72,8 @@ export class Player {
 
   private stop() {
     if (this.$current) {
+      this.visualizer.stop();
+
       this.$current.classList.remove(ACTIVE_CLASS);
       this.$current = null;
       this.url = null;
@@ -76,6 +85,9 @@ export class Player {
   }
 
   private play($item: HTMLLIElement, url: string, title: ITitleData) {
+    $item.prepend(this.$background);
+    this.visualizer.play();
+
     const $audio = this.$audio;
 
     $item.classList.add(ACTIVE_CLASS);
