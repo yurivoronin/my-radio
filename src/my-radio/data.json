@@ -12,7 +12,7 @@
         },
         {
             "name": "Rock FM",
-            "url": "http://nashe1.hostingradio.ru/rock-128.mp3",
+            "url": "https://nashe1.hostingradio.ru:18000/rock-128.mp3",
             "title": {
                 "url": "https://fmgid.com/stations/rock/current.json",
                 "artist": "artist",
@@ -22,37 +22,31 @@
         },
         {
             "name": "Rock Prog",
-            "url": "http://jfm1.hostingradio.ru:14536/prog.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/prog.mp3"
         },
         {
             "name": "Rock Heavy",
-            "url": "http://jfm1.hostingradio.ru:14536/metal.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/metal.mp3"
         },
         {
-            "name": "Rock 00s",
-            "url": "http://rock00128.streamr.ru/"
+            "name": "Rock ’00s",
+            "url": "https://jfm1.hostingradio.ru:14536/rock00.mp3"
         },
         {
-            "name": "Rock 90s",
-            "url": "http://rock90128.streamr.ru/"
+            "name": "Rock ’90s",
+            "url": "https://jfm1.hostingradio.ru:14536/rock90.mp3"
         },
         {
-            "name": "Rock 80s",
-            "url": "http://rock80128.streamr.ru/"
+            "name": "Rock ’80s",
+            "url": "https://jfm1.hostingradio.ru:14536/rock80.mp3"
         },
         {
-            "name": "Rock 70s",
-            "url": "http://rock70128.streamr.ru/"
+            "name": "Rock ’70s",
+            "url": "https://jfm1.hostingradio.ru:14536/rock70.mp3"
         },
         {
             "name": "Monte Carlo",
-            "url": "https://montecarlo.hostingradio.ru/montecarlo96.aacp",
-            "title": {
-                "url": "https://montecarlo.ru/api/current_playing/93a858ce-4a04-4997-9d15-ed89a6d9544c",
-                "artist": "",
-                "song": "",
-                "alt": "name"
-            }
+            "url": "https://montecarlo.hostingradio.ru/montecarlo96.aacp"
         },
         {
             "name": "NRJ",
@@ -86,11 +80,11 @@
         },
         {
             "name": "NASHE Classic Rock",
-            "url": "http://nashe1.hostingradio.ru/nasheclassic.mp3"
+            "url": "https://nashe1.hostingradio.ru:18000/nasheclassic.mp3"
         },
         {
             "name": "NASHE Punks",
-            "url": "http://nashe1.hostingradio.ru/nashepunks.mp3"
+            "url": "https://nashe1.hostingradio.ru:18000/nashepunks.mp3"
         }
     ]
 }
