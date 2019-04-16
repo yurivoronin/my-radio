@@ -7,7 +7,11 @@ const PADDING = 4;
 const FFT_SIZE = 128;
 const LINE_WIDTH = 1.5;
 
-const FREQUENCY_RATE = (HEIGHT / 2 - Math.ceil(LINE_WIDTH)) / MAX_FREQUENCY_VALUE;
+const MIDDLE = PADDING + HEIGHT / 2;
+const FREQUENCIES = new Array(256).fill(0)
+    .map((_, i) => i / MAX_FREQUENCY_VALUE)
+    .map(x => Math.asin(x * 2 - 1) / Math.PI + .5)
+    .map(n => (HEIGHT / 2 - Math.ceil(LINE_WIDTH)) * n);
 
 const SVG_TAG = 'svg';
 const DEFS_TAG = 'defs';
@@ -24,7 +28,6 @@ export class Visualizer {
     private path: SVGPathElement;
     private pathGlow: SVGPathElement;
     private step: number;
-    private middle: number;
 
     private frame: number;
 
@@ -61,7 +64,6 @@ export class Visualizer {
         this.data = new Uint8Array(this.count);
 
         this.step = WIDTH / this.count;
-        this.middle = PADDING + HEIGHT / 2;
     }
 
     private createSVG() {
@@ -109,12 +111,12 @@ export class Visualizer {
 
         this.analyser.getByteFrequencyData(this.data);
 
-        const paths = [`M0,${this.middle}`];
+        const paths = [`M0,${MIDDLE}`];
         let sign = 1;
 
         for (let i = 0; i < this.count; i++) {
             sign *= -1;
-            paths.push(`L${(i + .5) * this.step},${this.middle + sign * this.data[i] * FREQUENCY_RATE}`);
+            paths.push(`L${(i + .5) * this.step},${MIDDLE + sign * FREQUENCIES[this.data[i]]}`);
         }
 
         const path = paths.join(' ');
