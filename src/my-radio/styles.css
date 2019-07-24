@@ -32,7 +32,7 @@ body {
     border-bottom: 0 none;
 }
 
-.list .active {
+.list > .active {
     background-color: #161616;
     text-shadow: 1px 1px 0 #161616, -1px 1px 0 #161616, -1px -1px 0 #161616, 1px -1px 0 #161616;
 }
@@ -68,25 +68,25 @@ body {
     transition: height .2s ease-in-out, padding .2s ease-in-out;
 }
 
-.list .active .titles {
+.list > .active .titles {
     opacity: 1;
 
     transform: none;
 }
 
-.list .active .title:not(:empty) {
+.list > .active .title.active {
     height: 1rem;
     padding-top: .25rem;
 
     font-weight: 500;
 }
 
-.list .active .subtitle:not(:empty) {
+.list > .active .subtitle.active {
     height: 1rem;
     padding-top: .25rem;
 }
 
-.list .active .station {
+.list > .active .station {
     background-color: rgba(22, 22, 22, 0.4);
     box-shadow: 0 0 .25rem .25rem rgba(22, 22, 22, 0.4);
 }
@@ -107,7 +107,7 @@ body {
     transition: opacity .2s ease-out;
 }
 
-.list .active .visualization {
+.list > .active .visualization {
     opacity: 1;
 }
 

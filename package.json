@@ -4,19 +4,20 @@
   "description": "Simple online radio player.",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server.js"
+    "build": "gulp build",
+    "start": "gulp && node ./server.js"
   },
   "author": "Yuri Voronin",
   "license": "MIT",
   "devDependencies": {
-    "del": "^4.1.0",
-    "gulp": "^4.0.0",
+    "del": "^5.0.0",
+    "gulp": "^4.0.2",
     "gulp-csso": "^3.0.1",
     "gulp-minify": "^3.1.0",
     "gulp-rollup": "^2.16.2",
     "gulp-typescript": "^5.0.1",
     "lite-dev-server": "^3.2.6",
-    "tslint": "^5.15.0",
-    "typescript": "^3.4.2"
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
   }
 }

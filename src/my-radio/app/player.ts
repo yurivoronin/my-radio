@@ -26,7 +26,7 @@ export class Player {
 
   private titleLoader = new TitleLoader();
   private titleTimer;
-  private titles = new Map<string, { $title, $subtitle }>();
+  private titles = new Map<string, { $title: HTMLSpanElement, $subtitle: HTMLSpanElement }>();
 
   private $background;
   private visualizer: Visualizer;
@@ -119,11 +119,21 @@ export class Player {
 
       data = data || { title: null, subtitle: null };
 
-      $title.textContent = data.title;
-      $subtitle.textContent = data.subtitle;
+      this.setTitle($title, data.title);
+      this.setTitle($subtitle, data.subtitle);
 
       this.titleTimer = timer = setTimeout(() => this.loadTitle(url, title), 5e3);
     });
+  }
+
+  private setTitle($element: HTMLSpanElement, value: string) {
+    if (value) {
+      $element.classList.add(ACTIVE_CLASS);
+    } else {
+      $element.classList.remove(ACTIVE_CLASS);
+    }
+
+    $element.textContent = value;
   }
 }
 
