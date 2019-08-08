@@ -4,7 +4,7 @@ const MAX_FREQUENCY_VALUE = 256;
 const WIDTH = 320;
 const HEIGHT = 52;
 const PADDING = 4;
-const FFT_SIZE = 128;
+const FFT_SIZE = 64;
 const LINE_WIDTH = 1.5;
 
 const MIDDLE = PADDING + HEIGHT / 2;
@@ -60,8 +60,9 @@ export class Visualizer {
 
         analyser.fftSize = FFT_SIZE;
 
-        this.count = analyser.frequencyBinCount;
-        this.data = new Uint8Array(this.count);
+        const frequencyBinCount = analyser.frequencyBinCount;
+        this.count = frequencyBinCount - 4;
+        this.data = new Uint8Array(frequencyBinCount);
 
         this.step = WIDTH / this.count;
     }
@@ -111,16 +112,25 @@ export class Visualizer {
 
         this.analyser.getByteFrequencyData(this.data);
 
+        console.log(this.data.length, this.data);
+
         const paths = [`M0,${MIDDLE}`];
         let sign = 1;
 
-        for (let i = 0; i < this.count; i++) {
+        for (let x = 0; x < this.count * 2; x++) {
+            const index = this.getIndex(x, this.count);
             sign *= -1;
-            paths.push(`L${(i + .5) * this.step},${MIDDLE + sign * FREQUENCIES[this.data[i]]}`);
+            paths.push(`L${(x + .5) * this.step / 2},${MIDDLE + sign * FREQUENCIES[this.data[index]]}`);
         }
 
         const path = paths.join(' ');
         this.path.setAttribute('d', path);
         this.pathGlow.setAttribute('d', path);
+    }
+
+    private getIndex(x, count) {
+        const value = count - x;
+        // tslint:disable-next-line:no-bitwise
+        return Math.abs(value - ((Math.sign(value) + 1) / 2 | 0));
     }
 }
