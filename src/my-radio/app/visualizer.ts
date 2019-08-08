@@ -112,8 +112,6 @@ export class Visualizer {
 
         this.analyser.getByteFrequencyData(this.data);
 
-        console.log(this.data.length, this.data);
-
         const paths = [`M0,${MIDDLE}`];
         let sign = 1;
 
