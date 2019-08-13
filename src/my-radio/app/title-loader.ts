@@ -3,7 +3,7 @@ import { ITitle } from './title';
 
 export class TitleLoader {
   load = ({ url, artist, song, alt }: ITitleData): Promise<ITitle> =>
-    fetch(url)
+    fetch(url, { mode: 'cors' })
       .then(response => response.json())
       .then(data => {
         if (!data) { return null; }

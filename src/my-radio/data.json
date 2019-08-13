@@ -52,7 +52,7 @@
             "name": "NRJ",
             "url": "http://ic3.101.ru:8000/a99?userid=0&setst=mgod91tfepi53nc6gmcj161ci9",
             "title": {
-                "url": "https://www.energyfm.ru/api/radiostation/getTitleBroadcast/85/?dataFormat=json",
+                "url": "http://www.energyfm.ru/api/radiostation/getTitleBroadcast/85/?dataFormat=json",
                 "artist": "result.short.titleExecutorFull",
                 "song": "result.short.titleTrack",
                 "alt": "result.short.title"
