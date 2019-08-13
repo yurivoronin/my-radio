@@ -1,4 +1,5 @@
 const { src, dest, series, parallel, watch } = require('gulp');
+const connect = require('gulp-connect')
 const del = require('del');
 const minifyCSS = require('gulp-csso');
 const minifyJS = require('gulp-minify');
@@ -8,7 +9,10 @@ const typescript = require('gulp-typescript');
 const TS_DEST = './out-tsc';
 const DEST = '../yurivoronin.github.io/my-radio';
 
-const clean = () => del([`${DEST}/**/*.*`, `${TS_DEST}/**/*.*`], { force: true });
+const runServer = () => connect.server({
+  root: 'src',
+  livereload: true
+});
 
 const html = () => src(['src/my-radio/index.html'])
   .pipe(dest(DEST));
@@ -34,8 +38,26 @@ const ts = () => src('src/my-radio/**/*.ts')
   }))
   .pipe(dest(TS_DEST));
 
-const bundleTo = (folder) =>
-  bundle = () => src(`${TS_DEST}/**/*.js`)
+const bundleDev = () => src(`${TS_DEST}/**/*.js`)
+    .pipe(rollup({
+      input: `${TS_DEST}/main.js`,
+      output: {
+        format: 'iife'
+      }
+    }))
+    .pipe(dest('./src/my-radio'))
+    .pipe(connect.reload());
+
+const cleanTs = () => del(TS_DEST);
+
+const runWatch = () => {
+  watch('src/my-radio/**/*.ts', { ignoreInitial: false }, series(ts, bundleDev, cleanTs));
+  watch('src/my-radio/**/*.css', connect.reload());
+};
+
+const clean = () => del([`${DEST}/**/*.*`, `${TS_DEST}/**/*.*`], { force: true });
+
+const bundleBuild = () => src(`${TS_DEST}/**/*.js`)
     .pipe(rollup({
       input: `${TS_DEST}/main.js`,
       output: {
@@ -43,16 +65,8 @@ const bundleTo = (folder) =>
       }
     }))
     .pipe(minifyJS({ noSource: true, ext: { min: '.js' } }))
-    .pipe(dest(folder));
+    .pipe(dest(DEST));
 
-const cleanTs = () => del(TS_DEST);
+exports.default = parallel(runServer, runWatch);
 
-const watchTs = () => {
-  watch('src/my-radio/**/*.ts', { ignoreInitial: false }, exports.default);
-};
-
-exports.default = series(ts, bundleTo('./src/my-radio'), cleanTs);
-
-exports.watch = parallel(watchTs)
-
-exports.build = series(clean, parallel(html, icons, json, css, sw, series(ts, bundleTo(DEST), cleanTs)));
+exports.build = series(clean, parallel(html, icons, json, css, sw, series(ts, bundleBuild, cleanTs)));
