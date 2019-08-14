@@ -1,14 +1,22 @@
 
-import { Player } from './app/player';
-import { IStation } from './app/station';
+import { IStation } from './app/player/station';
 
 import { DOCUMENT } from './app/utils';
+import { App } from './app/app';
 
-const bootstrap = async () => {
+const loadData = async () => {
   const response = await fetch('data.json');
   const data = await response.json() as { stations: IStation[] };
 
-  return new Player(DOCUMENT.body, data.stations);
+  return data;
+};
+
+const bootstrap = async () => {
+  const { stations } = await loadData();
+
+  const app = new App(DOCUMENT.body, stations);
+
+  app.init();
 };
 
 bootstrap();

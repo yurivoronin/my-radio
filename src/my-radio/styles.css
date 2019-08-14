@@ -1,7 +1,7 @@
 body {
     margin: 0;
 
-    background-color: #1e1e1e;
+    background-color: #161616;
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
@@ -10,31 +10,21 @@ body {
 }
 
 .list {
-    max-width: 20em;
-    margin: 1em auto;
+    width: 82%;
+    max-width: 40em;
+    margin: 1em auto 6.5rem;
     padding: 0;
 
-    background-color: #1e1e1e;
-    box-shadow: 0 0 1.5rem -.2rem rgba(0, 0, 0, 0.65);
     list-style: none;
 }
 
 .list li {
     position: relative;
 
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     text-align: center;
-
-    transition: background-color 0.2s ease-out;
-}
-
-.list li:last-child {
-    border-bottom: 0 none;
-}
-
-.list > .active {
-    background-color: #161616;
     text-shadow: 1px 1px 0 #161616, -1px 1px 0 #161616, -1px -1px 0 #161616, 1px -1px 0 #161616;
+
+    transition: transform 0.2s ease-out;
 }
 
 .list a {
@@ -45,7 +35,13 @@ body {
     cursor: pointer;
 }
 
-.list .titles {
+.list .station {
+    color: #8a9abf;
+
+    transition: color .2s;
+}
+
+.list .title {
     display: flex;
 
     align-items: center;
@@ -61,57 +57,54 @@ body {
     transform-origin: top;
 }
 
-.list .title,
-.list .subtitle {
+.list .song,
+.list .artist {
     display: block;
     height: 0;
     transition: height .2s ease-in-out, padding .2s ease-in-out;
 }
 
-.list > .active .titles {
+.list > .active {
+    transform: scale(1.2);
+}
+
+.list > .active .title {
     opacity: 1;
 
     transform: none;
 }
 
-.list > .active .title.active {
+.list > .active .song.active {
     height: 1rem;
     padding-top: .25rem;
 
     font-weight: 500;
 }
 
-.list > .active .subtitle.active {
+.list > .active .artist.active {
     height: 1rem;
     padding-top: .25rem;
 }
 
 .list > .active .station {
-    background-color: rgba(22, 22, 22, 0.4);
-    box-shadow: 0 0 .25rem .25rem rgba(22, 22, 22, 0.4);
+    color: #fff;
 }
 
-.visualization {
-    width: 100%;
-    height: 3.75rem;
+.equalizer {
+    width: 20rem;
+    height: 4rem;
+
+    position: fixed;
+    left: calc(50% - 10rem);
+    bottom: 1rem;
+    z-index: 1;
     
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    background: #161616;
+    box-shadow: 0 0 .5rem 1rem #161616, 0 1rem 0 0 #161616;
 }
 
-.list .visualization {
-    opacity: 0;
-
-    transition: opacity .2s ease-out;
-}
-
-.list > .active .visualization {
-    opacity: 1;
-}
-
-.visualization .path,
-.visualization .path-glow {
+.equalizer .frequency {
     stroke: #487df5;
+    stroke-width: 4;
+    stroke-linecap: round;
 }

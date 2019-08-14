@@ -1,4 +1,5 @@
-export interface ITitleData {
+export interface IMetadataSource {
+  
   url: string;
 
   artist: string;
