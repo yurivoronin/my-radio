@@ -8,12 +8,14 @@ const STATION_NAME_CLASS = 'station';
 const TITLE_CLASS = 'title';
 const SONG_CLASS = 'song';
 const ARTIST_CLASS = 'artist';
+const EQUALIZER_CONTAINER_CLASS = 'equalizer-container';
 const EQUALIZER_CLASS = 'equalizer';
 
 const ACTIVE_CLASS = 'active';
 
 const A_TAG = 'a';
 const AUDIO_TAG = 'audio';
+const DIV_TAG = 'div';
 const LI_TAG = 'li';
 const SPAN_TAG = 'span';
 const SVG_TAG = 'svg';
@@ -21,6 +23,7 @@ const UL_TAG = 'ul';
 
 export class AppView {
     readonly audio = createHTMLElement<HTMLAudioElement>(AUDIO_TAG, null, { crossorigin: 'anonymous' });
+    readonly equalizerContainer = createHTMLElement<HTMLDivElement>(DIV_TAG, null, { class: EQUALIZER_CONTAINER_CLASS });
     readonly equalizer = createSVGElement(SVG_TAG, null, { class: EQUALIZER_CLASS });
 
     private list = createHTMLElement<HTMLUListElement>(UL_TAG, null, { class: LIST_CLASS });
@@ -33,11 +36,13 @@ export class AppView {
 
     constructor(stations: IStation[]) {
         stations.forEach((station, id) => this.list.appendChild(this.createItem(station, id)));
+
+        this.equalizerContainer.appendChild(this.equalizer);
     }
 
     render(container: HTMLElement) {
         container.appendChild(this.audio);
-        container.appendChild(this.equalizer);
+        container.appendChild(this.equalizerContainer);
         container.appendChild(this.list);
     }
 

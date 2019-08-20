@@ -90,17 +90,37 @@ body {
     color: #fff;
 }
 
-.equalizer {
-    width: 20rem;
-    height: 4rem;
+.equalizer-container {
+    width: 100%;
 
     position: fixed;
-    left: calc(50% - 10rem);
-    bottom: 1rem;
+    bottom: 0;
     z-index: 1;
-    
+
     background: #161616;
-    box-shadow: 0 0 .5rem 1rem #161616, 0 1rem 0 0 #161616;
+}
+
+.equalizer-container::before {
+    content: '';
+
+    display: block;
+    height: 1.5rem;
+    width: 100%;
+    
+    position: absolute;
+    top: -1.5rem;
+
+    background-image: linear-gradient(transparent, #161616);
+    background-repeat: repeat;
+}
+
+.equalizer {
+    display: block;
+    width: 20rem;
+    height: 4rem;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    
 }
 
 .equalizer .frequency {
