@@ -1,8 +1,18 @@
+:root {
+    --bg-color: #000;
+    --text-color: #fff;
+
+    --station-color: #8a9abf;
+    --station-color-active: #fff;
+
+    --eq-color: #487df5;
+}
+
 body {
     margin: 0;
 
-    background-color: #161616;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     font-weight: 300;
@@ -22,7 +32,7 @@ body {
     position: relative;
 
     text-align: center;
-    text-shadow: 1px 1px 0 #161616, -1px 1px 0 #161616, -1px -1px 0 #161616, 1px -1px 0 #161616;
+    text-shadow: 1px 1px 0 var(--bg-color), -1px 1px 0 var(--bg-color), -1px -1px 0 var(--bg-color), 1px -1px 0 var(--bg-color);
 
     transition: transform 0.2s ease-out;
 }
@@ -36,7 +46,7 @@ body {
 }
 
 .list .station {
-    color: #8a9abf;
+    color: var(--station-color);
 
     transition: color .2s;
 }
@@ -87,7 +97,7 @@ body {
 }
 
 .list > .active .station {
-    color: #fff;
+    color: var(--station-color-active);
 }
 
 .equalizer-container {
@@ -97,7 +107,7 @@ body {
     bottom: 0;
     z-index: 1;
 
-    background: #161616;
+    background: var(--bg-color);
 }
 
 .equalizer-container::before {
@@ -110,7 +120,7 @@ body {
     position: absolute;
     top: -1.5rem;
 
-    background-image: linear-gradient(transparent, #161616);
+    background-image: linear-gradient(transparent, var(--bg-color));
     background-repeat: repeat;
 }
 
@@ -124,7 +134,7 @@ body {
 }
 
 .equalizer .frequency {
-    stroke: #487df5;
+    stroke: var(--eq-color);
     stroke-width: 4;
     stroke-linecap: round;
 }

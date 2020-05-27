@@ -39,14 +39,14 @@ const ts = () => src('src/my-radio/**/*.ts')
   .pipe(dest(TS_DEST));
 
 const bundleDev = () => src(`${TS_DEST}/**/*.js`)
-    .pipe(rollup({
-      input: `${TS_DEST}/main.js`,
-      output: {
-        format: 'iife'
-      }
-    }))
-    .pipe(dest('./src/my-radio'))
-    .pipe(connect.reload());
+  .pipe(rollup({
+    input: `${TS_DEST}/main.js`,
+    output: {
+      format: 'iife'
+    }
+  }))
+  .pipe(dest('./src/my-radio'))
+  .pipe(connect.reload());
 
 const cleanTs = () => del(TS_DEST);
 
@@ -58,14 +58,14 @@ const runWatch = () => {
 const clean = () => del([`${DEST}/**/*.*`, `${TS_DEST}/**/*.*`], { force: true });
 
 const bundleBuild = () => src(`${TS_DEST}/**/*.js`)
-    .pipe(rollup({
-      input: `${TS_DEST}/main.js`,
-      output: {
-        format: 'iife'
-      }
-    }))
-    .pipe(minifyJS({ noSource: true, ext: { min: '.js' } }))
-    .pipe(dest(DEST));
+  .pipe(rollup({
+    input: `${TS_DEST}/main.js`,
+    output: {
+      format: 'iife'
+    }
+  }))
+  .pipe(minifyJS({ noSource: true, ext: { min: '.js' } }))
+  .pipe(dest(DEST));
 
 exports.default = parallel(runServer, runWatch);
 
