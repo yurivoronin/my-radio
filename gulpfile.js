@@ -35,7 +35,7 @@ const sw = () => src('src/my-radio/sw.js')
 
 const ts = () => src('src/my-radio/**/*.ts')
   .pipe(typescript({
-    target: 'es2018',
+    target: 'es2017',
     module: 'esnext'
   }))
   .pipe(dest(TS_DEST));

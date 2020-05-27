@@ -12,7 +12,7 @@ export class App {
     private frequencyProvider: FrequencyProvider;
     private equalizer: Equalizer;
 
-    constructor(private container: HTMLElement, private stations: IStation[]) {
+    constructor(private container: HTMLElement, stations: IStation[]) {
         this.view = new AppView(stations);
 
         const metadataLoader = new MetadataLoader();

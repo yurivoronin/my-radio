@@ -7,7 +7,7 @@ const STATE_CHANGED_EVENT = 'player_state_changed';
 const METADATA_CHANGED_EVENT = 'player_metadata_changed';
 
 export class Player {
-    private current = 0;
+    private current: number = null;
     private playing = false;
 
     private metadata: { [key: number]: IMetadata } = {};
@@ -45,6 +45,7 @@ export class Player {
     }
 
     toggle(id: number) {
+        console.log('toggle', this.current, id);
         if (!this.playing || this.current !== id) {
             this.play(id);
         } else {
@@ -59,7 +60,9 @@ export class Player {
     private playInternal() {
         this.playing = true;
 
-        const metadataSource = this.stations[this.current].title;
+        const { current, playing } = this;
+
+        const metadataSource = this.stations[current].title;
 
         if (metadataSource) {
             this.metadataLoader.start(metadataSource);
@@ -67,20 +70,20 @@ export class Player {
             this.metadataLoader.stop();
         }
 
-        this.notice<IState>(STATE_CHANGED_EVENT, { current: this.current, playing: this.playing });
+        this.notice<IState>(STATE_CHANGED_EVENT, { current, playing });
     }
 
     private pauseInternal() {
         this.playing = false;
         this.metadataLoader.stop();
 
-        this.notice<IState>(STATE_CHANGED_EVENT, { current: this.current, playing: this.playing });
+        const { current, playing } = this;
+
+        this.notice<IState>(STATE_CHANGED_EVENT, { current, playing });
     }
 
     private updateMetadata(metadata: IMetadata, url: string) {
-        const data = Object.assign({}, this.metadata);
-        data[this.metadataMap[url]] = metadata;
-        this.metadata = data;
+        this.metadata = { ...this.metadata, [this.metadataMap[url]] : metadata };
 
         this.notice(METADATA_CHANGED_EVENT, this.metadata);
     }
