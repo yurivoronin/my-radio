@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "build": "gulp build",
-    "start": "gulp"
+    "start": "gulp",
+    "convert-icons": "gulp convertIcons"
   },
   "author": "Yuri Voronin",
   "license": "MIT",
