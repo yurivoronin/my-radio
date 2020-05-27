@@ -4,7 +4,7 @@
             "name": "Radio ULTRA",
             "url": "https://nashe1.hostingradio.ru:18000/ultra-192.mp3",
             "title": {
-                "url": "https://fmgid.com/stations/ultra/current.json",
+                "url": "https://meta.fmgid.com/stations/ultra/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -14,7 +14,7 @@
             "name": "Rock FM",
             "url": "https://nashe1.hostingradio.ru:18000/rock-128.mp3",
             "title": {
-                "url": "https://fmgid.com/stations/rock/current.json",
+                "url": "https://meta.fmgid.com/stations/rock/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -22,33 +22,79 @@
         },
         {
             "name": "Rock Prog",
-            "url": "https://jfm1.hostingradio.ru:14536/prog.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/prog.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/rockfmprog/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock Heavy",
-            "url": "https://jfm1.hostingradio.ru:14536/metal.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/metal.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/rockfmmetal/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock ’00s",
-            "url": "https://jfm1.hostingradio.ru:14536/rock00.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/rock00.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/rock00/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock ’90s",
-            "url": "https://jfm1.hostingradio.ru:14536/rock90.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/rock90.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/rock90/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock ’80s",
-            "url": "https://jfm1.hostingradio.ru:14536/rock80.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/rock80.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/rock80/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Rock ’70s",
-            "url": "https://jfm1.hostingradio.ru:14536/rock70.mp3"
+            "url": "https://jfm1.hostingradio.ru:14536/rock70.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/rock70/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
+        },
+        {
+            "name": "JAZZ",
+            "url": "https://jfm1.hostingradio.ru:14536/jlstream.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/jazz/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "Monte Carlo",
             "url": "https://montecarlo.hostingradio.ru/montecarlo96.aacp",
             "title": {
-                "url": "https://fmgid.com/stations/mcarlo/current.json",
+                "url": "https://meta.fmgid.com/stations/mcarlo/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -58,7 +104,7 @@
             "name": "Chocolate",
             "url": "http://choco.hostingradio.ru:10010/fm",
             "title": {
-                "url": "https://fmgid.com/stations/chocolate/current.json",
+                "url": "https://meta.fmgid.com/stations/chocolate/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -66,9 +112,9 @@
         },
         {
             "name": "NRJ",
-            "url": "http://ic3.101.ru:8000/a99?userid=0&setst=mgod91tfepi53nc6gmcj161ci9",
+            "url": "https://pub0201.101.ru/stream/air/aac/64/99",
             "title": {
-                "url": "https://fmgid.com/stations/nrj/current.json",
+                "url": "https://meta.fmgid.com/stations/nrj/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -78,7 +124,7 @@
             "name": "NASHE Radio",
             "url": "https://nashe1.hostingradio.ru:80/nashe-128.mp3",
             "title": {
-                "url": "https://metanashe.hostingradio.ru/current.json",
+                "url": "https://meta.fmgid.com/stations/nashe/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -88,7 +134,7 @@
             "name": "NASHE 2.0",
             "url": "https://nashe1.hostingradio.ru:18000/nashe20-128.mp3",
             "title": {
-                "url": "https://metanashe20.hostingradio.ru/current.json",
+                "url": "https://meta.fmgid.com/stations/nashe2/current.json",
                 "artist": "artist",
                 "song": "title",
                 "alt": "metadata"
@@ -96,11 +142,23 @@
         },
         {
             "name": "NASHE Classic Rock",
-            "url": "https://nashe1.hostingradio.ru:18000/nasheclassic.mp3"
+            "url": "https://nashe1.hostingradio.ru:18000/nasheclassic.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/nasheclassic/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         },
         {
             "name": "NASHE Punks",
-            "url": "https://nashe1.hostingradio.ru:18000/nashepunks.mp3"
+            "url": "https://nashe1.hostingradio.ru:18000/nashepunks.mp3",
+            "title": {
+                "url": "https://meta.fmgid.com/stations/nashepunks/current.json",
+                "artist": "artist",
+                "song": "title",
+                "alt": "metadata"
+            }
         }
     ]
 }

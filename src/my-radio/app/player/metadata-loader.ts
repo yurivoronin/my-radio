@@ -55,7 +55,7 @@ export class MetadataLoader implements IMetadataLoader {
   }
 
   private get = (source: IMetadataSource): Promise<IMetadata> =>
-    fetch(source.url)
+    fetch(`${source.url}?t=${Date.now()}`)
       .then(response => response.json())
       .then(parseMetadata(source))
       .catch(_ => null)
