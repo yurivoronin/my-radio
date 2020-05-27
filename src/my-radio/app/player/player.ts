@@ -45,7 +45,6 @@ export class Player {
     }
 
     toggle(id: number) {
-        console.log('toggle', this.current, id);
         if (!this.playing || this.current !== id) {
             this.play(id);
         } else {
