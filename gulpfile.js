@@ -3,7 +3,9 @@ const connect = require('gulp-connect')
 const del = require('del');
 const minifyCSS = require('gulp-csso');
 const minifyJS = require('gulp-minify');
+const rename = require('gulp-rename');
 const rollup = require('gulp-rollup');
+const svg2png = require('gulp-svg2png');
 const typescript = require('gulp-typescript');
 
 const TS_DEST = './out-tsc';
@@ -67,6 +69,23 @@ const bundleBuild = () => src(`${TS_DEST}/**/*.js`)
   .pipe(minifyJS({ noSource: true, ext: { min: '.js' } }))
   .pipe(dest(DEST));
 
+const convertIcons = series(
+  [
+    { size: 16, source: 'favicon' },
+    { size: 32, source: 'favicon' },
+    { size: 64, source: 'favicon-squire' },
+    { size: 96, source: 'favicon-squire' },
+    { size: 192, source: 'favicon-squire' },
+    { size: 256, source: 'favicon-squire' },
+  ]
+    .map(({ size, source }) =>
+      () => src([`src/my-radio/icons/${source}.svg`])
+        .pipe(svg2png({ height: size }))
+        .pipe(rename(`${size}.png`))
+        .pipe(dest(`src/my-radio/icons`))));
+
 exports.default = parallel(runServer, runWatch);
 
 exports.build = series(clean, parallel(html, icons, json, css, sw, series(ts, bundleBuild, cleanTs)));
+
+exports.convertIcons = convertIcons;

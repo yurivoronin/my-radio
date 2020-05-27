@@ -15,7 +15,9 @@
     "gulp-connect": "^5.7.0",
     "gulp-csso": "^3.0.1",
     "gulp-minify": "^3.1.0",
+    "gulp-rename": "^2.0.0",
     "gulp-rollup": "^2.16.2",
+    "gulp-svg2png": "^2.0.2",
     "gulp-typescript": "^5.0.1",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
