@@ -35,8 +35,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#003c8f",
   "background_color": "#003c8f",
+  "theme_color": "#000000",
   "start_url": "/my-radio/",
   "display": "standalone",
   "orientation": "natural"
