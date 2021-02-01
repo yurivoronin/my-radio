@@ -11,16 +11,16 @@
   "author": "Yuri Voronin",
   "license": "MIT",
   "devDependencies": {
-    "del": "^5.0.0",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-connect": "^5.7.0",
     "gulp-csso": "^4.0.1",
     "gulp-minify": "^3.1.0",
     "gulp-rename": "^2.0.0",
-    "gulp-rollup": "^2.16.2",
+    "gulp-rollup": "^2.17.0",
     "gulp-svg2png": "^2.0.2",
     "gulp-typescript": "^5.0.1",
-    "tslint": "^6.1.2",
-    "typescript": "^3.5.3"
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.3"
   }
 }
