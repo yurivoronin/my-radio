@@ -1,7 +1,7 @@
 
 import { IStation } from './app/player/station';
 
-import { DOCUMENT } from './app/utils';
+import { DOCUMENT, isMobile } from './app/utils';
 import { App } from './app/app';
 
 const loadData = async () => {
@@ -12,9 +12,11 @@ const loadData = async () => {
 };
 
 const bootstrap = async () => {
+  const equalizer = !isMobile();
+
   const { stations } = await loadData();
 
-  const app = new App(DOCUMENT.body, stations);
+  const app = new App(DOCUMENT.body, { stations, equalizer });
 
   app.init();
 };

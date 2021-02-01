@@ -23,8 +23,9 @@ const UL_TAG = 'ul';
 
 export class AppView {
     readonly audio = createHTMLElement<HTMLAudioElement>(AUDIO_TAG, null, { crossorigin: 'anonymous' });
-    readonly equalizerContainer = createHTMLElement<HTMLDivElement>(DIV_TAG, null, { class: EQUALIZER_CONTAINER_CLASS });
-    readonly equalizer = createSVGElement(SVG_TAG, null, { class: EQUALIZER_CLASS });
+
+    readonly equalizerContainer: HTMLDivElement;
+    readonly equalizer: SVGElement;
 
     private list = createHTMLElement<HTMLUListElement>(UL_TAG, null, { class: LIST_CLASS });
 
@@ -34,15 +35,23 @@ export class AppView {
 
     private onItemClick: (id: number) => void = () => { };
 
-    constructor(stations: IStation[]) {
+    constructor(stations: IStation[], equalizer: boolean) {
         stations.forEach((station, id) => this.list.appendChild(this.createItem(station, id)));
 
-        this.equalizerContainer.appendChild(this.equalizer);
+        if (equalizer) {
+            this.equalizerContainer = createHTMLElement<HTMLDivElement>(DIV_TAG, null, { class: EQUALIZER_CONTAINER_CLASS });
+            this.equalizer = createSVGElement(SVG_TAG, null, { class: EQUALIZER_CLASS });
+            this.equalizerContainer.appendChild(this.equalizer);
+        }
     }
 
     render(container: HTMLElement) {
         container.appendChild(this.audio);
-        container.appendChild(this.equalizerContainer);
+
+        if (this.equalizerContainer) {
+            container.appendChild(this.equalizerContainer);
+        }
+
         container.appendChild(this.list);
     }
 

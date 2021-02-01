@@ -12,6 +12,7 @@ const appendTo = <T extends HTMLElement | SVGElement>(element: T, parent: HTMLEl
 };
 
 export const DOCUMENT = document;
+export const WINDOW = window;
 
 export const createHTMLElement = <T extends HTMLElement>(
   name: string,
@@ -36,3 +37,5 @@ export const createSVGElement = <T extends SVGElement>(
 
   return element;
 };
+
+export const isMobile = () => /mobi/i.test(WINDOW.navigator.userAgent);
